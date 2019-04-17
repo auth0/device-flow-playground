@@ -1,2 +1,7 @@
-# device-flow-playground
-Try out the Device Authorization Grant right from your browser
+# Device Flow Playground
+
+To run the playground locally, simply serve the `src` directory:
+
+```sh
+npx serve ./src
+```

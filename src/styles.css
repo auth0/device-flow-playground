@@ -1,0 +1,99 @@
+body {
+  background-color: #ffffff;
+}
+
+#page-container {
+  margin: auto;
+  max-width: 960px;
+  padding: 50px 0px;
+}
+
+/* TV Mockup*/
+#tv-container {
+  display: none;
+  width: 960px;
+  margin: auto;
+}
+
+#tv-shell {
+  background: black;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+#tv-screen {
+  background-color: #E3E5E7;
+}
+
+/* Screens */
+.screen {
+  display: none;
+  margin-bottom: 0;
+}
+
+#exchange-screen ol {
+  display: inline-block;
+  text-align: left;
+}
+
+#exchange-screen p {
+  margin-bottom: 0px;
+}
+
+#exchange-screen #qrcode img {
+  display: inline !important;
+  padding: 5px;
+  border-radius: 3px;
+  background-color: #D0D2D3;
+}
+
+/* Steps */
+#step-title {
+  font-weight: 300;
+}
+
+#step-title,
+#step-description {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+#step-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#step-indicator .step-number {
+  border: 1px solid #D0D2D3;
+  border-radius: 0.8em;
+  display: inline-block;
+  line-height: 1.5em;
+  text-align: center;
+  width: 1.6em;
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+#step-indicator .step-number.active {
+  border-color: #7ED321;
+  color: #7ED321;
+}
+
+#step-indicator .step-connector {
+  border-top: 1px solid #D0D2D3;
+  width: 6em;
+  height: 1px;
+}
+
+/* Request/Response */
+#token-set,
+#request,
+#response {
+  margin-top: 40px;
+  display: none;
+}
+
+.card-docs {
+  padding: 50px;
+}
