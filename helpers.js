@@ -43,6 +43,19 @@ function renderStep(step, options) {
   renderHeader(currentStep, currentStepIdx)
 
   if (step === 'authorize') {
+    const config = getConfig()
+    let reqBody = {
+      client_id: config.clientId
+    }
+
+    if (config.audience) {
+      reqBody.audience = config.audience
+    }
+  
+    if (config.scopes.length) {
+      reqBody.scope = config.scopes.join(' ')
+    }
+    
     renderScreen(currentStep.screenId)
     renderReqRes(
       'Authorization Request',
@@ -51,7 +64,7 @@ function renderStep(step, options) {
         '/oauth/device/code',
         'POST',
         ['Content-Type: application/x-www-form-urlencoded'],
-        { client_id: getConfig().clientId }
+        reqBody
       ),
       JSON.stringify(
         {
