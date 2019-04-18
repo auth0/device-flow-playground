@@ -1,7 +1,7 @@
 # Device Flow Playground
 
-To run the playground locally, simply serve the `src` directory:
+To run the playground locally, simply serve the root directory:
 
 ```sh
-npx serve ./src
+npx serve
 ```
