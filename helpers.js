@@ -51,11 +51,11 @@ function renderStep(step, options) {
     if (config.audience) {
       reqBody.audience = config.audience
     }
-  
+
     if (config.scopes.length) {
       reqBody.scope = config.scopes.join(' ')
     }
-    
+
     renderScreen(currentStep.screenId)
     renderReqRes(
       'Authorization Request',
@@ -133,6 +133,12 @@ function renderStep(step, options) {
       JSON.stringify(options.userInfo, null, 2)
     )
     renderTokenSetResponse(options.tokenSet)
+
+    document.querySelector('#complete-screen h1').textContent = `Welcome${
+      options.userInfo && options.userInfo.nickname
+        ? ', ' + options.userInfo.nickname
+        : ''
+    }!`
   }
 
   document.querySelectorAll('pre code').forEach((block) => {

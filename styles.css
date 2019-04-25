@@ -97,3 +97,21 @@ body {
 .card-docs {
   padding: 50px;
 }
+
+/* TV Shows */
+#shows-container{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#shows-container .show {
+  height: 200px;
+  width: auto;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+#shows-container .show:hover {
+  opacity: 1;
+}
