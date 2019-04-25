@@ -18,7 +18,7 @@ function renderStep(step, options) {
     {
       name: 'exchange',
       screenId: 'exchange-screen',
-      title: 'Token Exchange',
+      title: 'Token Request',
       description:
         "In this step, the user is prompted to authorize the device by navigating to the tenant's <code>/activate</code> endpoint and entering the user code displayed on the smart TV or, alternatively, scanning the QR code which would automatically input the user code via the <code>verification_uri_complete</code>. In the background, the smart TV is polling the tenant's <code>/oauth/token</code> endpoint to exchange the device code for an access token and, optionally, a refresh token."
     },
