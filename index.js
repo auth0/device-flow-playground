@@ -47,8 +47,8 @@ function requestAuthorization() {
 /**
  * Poll the `/oauth/token` endpoint to exchange the device code for tokens
  * after the user has successfully authorized the device.
- * 
- * @param {Object} deviceCode 
+ *
+ * @param {Object} deviceCode
  */
 function exchangeDeviceCodeForToken(deviceCode) {
   renderStep('exchange', { deviceCode })
@@ -73,28 +73,26 @@ function exchangeDeviceCodeForToken(deviceCode) {
         setExchangeResponse(jsonRes)
 
         if (!jsonRes.error) {
-          clearInterval(tokenEndpointPoller)
           fetchUserInfo(jsonRes)
-        } else if (jsonRes.error && jsonRes.error !== 'authorization_pending') {
-          // stop polling if the error is not a pending user authorization
-          clearInterval(tokenEndpointPoller)
+        } else if (jsonRes.error && jsonRes.error === 'authorization_pending') {
+          setTimeout(
+            execExchange,
+            deviceCode.interval * 1000
+          )
         }
       })
       .catch((err) => {
         console.log(err)
       })
   }
+
   execExchange()
-  const tokenEndpointPoller = setInterval(
-    execExchange,
-    deviceCode.interval * 1000
-  )
 }
 
 /**
  * Retrieve user info from the `/userinfo` endpoint using the `access_token`
- * 
- * @param {Object} tokenSet 
+ *
+ * @param {Object} tokenSet
  */
 function fetchUserInfo(tokenSet) {
   const config = getConfig()
@@ -114,7 +112,6 @@ function fetchUserInfo(tokenSet) {
       console.log(err)
     })
 }
-
 
 // event handlers
 document
