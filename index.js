@@ -74,7 +74,7 @@ function exchangeDeviceCodeForToken(deviceCode) {
 
         if (!jsonRes.error) {
           fetchUserInfo(jsonRes)
-        } else if (jsonRes.error && jsonRes.error === 'authorization_pending') {
+        } else if (['authorization_pending', 'slow_down'].includes(jsonRes.error)) {
           setTimeout(
             execExchange,
             deviceCode.interval * 1000
